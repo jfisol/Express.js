@@ -12,31 +12,17 @@ app.get('/', (req,res) => {
 });
 
 //post
-app.post('/requestPost',middlewareRequestPost,controladorRequestPost);
+app.post('/requestPost',(req,res) => {
+  const cuertoSolicitud = req.body;
+  console.log(cuertoSolicitud.nombre);
+
+  if(!cuertoSolicitud.nombre){
+      res.status(200).send('Falta llenar el campo nombre');
+  }
+res.send('recibido');
+});
 
 
-
-//funcion controlador
-function controladorRequestPost(req,res)  {
-    console.log('El mensaje llego bien');
-    res.status(200).send('mensaje recibido');
- }
-
-//Funcion middleware de requestPost// la idea del middleware es delegar distintas funciones
-function middlewareRequestPost(req,resp, next){
-    console.log('El mensaje middleware');
-    const cuertoSolicitud = req.body;
-    console.log(cuertoSolicitud.nombre);
-  
-    if(!cuertoSolicitud.nombre){
-        res.status(200).send('Falta llenar el campo nombre');
-    }
-    else{
-        next();
-    }
-  
-
-}
 
 //utilizamos un metodo del objeto app
 const PORT = 3000;
