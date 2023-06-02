@@ -1,0 +1,44 @@
+POST http://localhost:3000/api/cursos/matematicas HTTP/1.1
+Content-Type: application/json
+
+{
+    "id":3,
+    "titulo": "Calculo-diferencial",
+    "tema": "Matrices",
+    "vistas": "47676",
+    "nivel": "medio"
+
+}
+
+###
+PUT http://localhost:3000/api/cursos/matematicas/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id":2,
+    "titulo": "Algebra",
+    "tema": "Vectores",
+    "vistas": "4000",
+    "nivel": "medio"
+
+}
+
+###
+PATCH  http://localhost:3000/api/cursos/matematicas/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "tema": "Matrices"
+    
+
+}
+
+###
+DELETE  http://localhost:3000/api/cursos/matematicas/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "tema": "Matrices"
+    
+
+}
