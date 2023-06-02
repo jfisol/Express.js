@@ -1,5 +1,6 @@
 //Importamos  express
 const express = require('express');
+const { param } = require('../2-EjemploExpress/routers/matematicas');
 
 //usamos express
 const app = express();
@@ -7,8 +8,35 @@ const app = express();
 //enviamos respuesta con get
 
 app.get('/', (req,res) => {
-    res.sendFile("/home/julio/Escritorio/Backup/Nodejs/Express.js/0-ConociencoExpress/index.html");
+    res.status(400).sendFile("/home/julio/Escritorio/Backup/Nodejs/Express.js/0-ConociencoExpress/index.html");
 });
+
+//post
+app.post('/requestPost',middlewareRequestPost,controladorRequestPost);
+
+
+
+//funcion controlador
+function controladorRequestPost(req,res)  {
+    console.log('El mensaje llego bien');
+    res.status(200).send('mensaje recibido');
+ }
+
+//Funcion middleware de requestPost// la idea del middleware es delegar distintas funciones
+function middlewareRequestPost(req,resp, next){
+    console.log('El mensaje middleware');
+    const cuertoSolicitud = req.body;
+    console.log(cuertoSolicitud.nombre);
+  
+    if(!cuertoSolicitud.nombre){
+        res.status(200).send('Falta llenar el campo nombre');
+    }
+    else{
+        next();
+    }
+  
+
+}
 
 //utilizamos un metodo del objeto app
 const PORT = 3000;
