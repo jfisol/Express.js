@@ -7,7 +7,7 @@ const app = express();
 //enviamos respuesta con get
 
 app.get('/', (req,res) => {
-    res.send("HELLO WORLD");
+    res.sendFile("/home/julio/Escritorio/Backup/Nodejs/Express.js/0-ConociencoExpress/index.html");
 });
 
 //utilizamos un metodo del objeto app
