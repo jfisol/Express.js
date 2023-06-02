@@ -1,3 +1,4 @@
+//Simula la base de datos
 let infoCursos = {
     'programacion': [
       { 
