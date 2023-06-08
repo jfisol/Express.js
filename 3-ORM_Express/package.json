@@ -1,0 +1,16 @@
+{
+  "name": "3-orm_express",
+  "version": "1.0.0",
+  "description": "Primer ejemplo de ORM",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "joju",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.3.3",
+    "sequelize": "^6.32.0"
+  }
+}
